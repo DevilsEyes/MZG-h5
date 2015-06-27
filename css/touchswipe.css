@@ -1,0 +1,62 @@
+#wrapper
+{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+#touchBox
+{
+	width: 100%;
+	height: auto;
+}
+#scroller
+{
+	left: 0px;
+	position: relative;
+	white-space: nowrap;
+}
+#scroller img
+{
+	width: 100%;
+	display: inline-block;
+}
+.dotNav
+{
+	padding: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: table;
+	overflow: hidden;
+	width: auto;
+	bottom: 10px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	border-radius: 10px;
+
+}
+
+.dotNav li 
+{
+	float: left;
+	height: 8px;
+	width: 8px;
+	border-radius: 8px;
+	background: white;
+	margin-right: 3px;
+	margin-left: 3px;
+
+}
+.dotNav li.active
+{
+	background:#d63518; 
+}
+
+.dotNav.white li
+{
+	background: #926f02;
+}
+.dotNav.white li.active
+{
+	background: #c9a01e;
+}

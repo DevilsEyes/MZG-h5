@@ -1,0 +1,25 @@
+*{
+	padding: 0px;
+	margin:0px;
+}
+ul
+{
+	list-style: none;
+
+}
+input,select,textarea
+{
+	-webkit-appearance: none;
+	outline: none;
+	border:0px;
+}
+a,p,span
+{
+	text-decoration: none;
+	text-shadow: none;
+	font-weight: normal !important;
+}
+body
+{
+	font:normal 14px/1.5 Arial,"Lucida Grande",Verdana,"Microsoft YaHei",hei;
+}
