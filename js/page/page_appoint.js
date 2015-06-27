@@ -335,6 +335,6 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
 		getProlist();
 	}
 	c.exports = {
-		main: main,
+		main: main
 	};
 });
