@@ -634,9 +634,14 @@ img
 	color:#666;
 }
 
+#page_appoint .main
+{
+	background-color: white !important;
+}
+
 .dbox{
-	border-top: 1px solid #ddd;
-	margin-top:10px;
+	border-top:10px solid #ececec;
+	border-bottom:1px solid #ddd;
 	background-color: white;
 }
 
@@ -644,7 +649,7 @@ img
 {
 	padding-top: 7px;
 	padding-bottom: 7px;
-	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
 	position: relative;
 }
 .form > div.textarea
@@ -723,10 +728,6 @@ img
 	background: white;
 }
 
-.form > div:last-child
-{
-	border:0px;
-}
 
 .btn_getvec{
 	background: #fec418;
@@ -842,6 +843,7 @@ input.icheck
 	margin-bottom: 50px;
 	border-radius: 999px;
 }
+
 #page_detail .iwShop,#page_pdetail .iwShop,#page_fwdetail .iwShop{
 	border: solid 2px #FEC418;
 	color:#1a1a1a;
@@ -859,18 +861,44 @@ input.icheck
 
 
 #page_appoint .iwShop{
-	background: #FEC418;
-	color:white;
+	border: solid 2px #ffbb77;
+	color:#1a1a1a;
+	background-color: white;
 	margin-bottom: 300px;
 }
 
 #page_appoint .iwShop:visited{
+	color:#1a1a1a;
+}
+
+#page_appoint .iwShop:active{
+	background: #ffbb77;
 	color:white;
 }
 
+.paytype{
+	height:30px;
+}
 
-#page_appoint .iwShop:active{
-	background: #BDA895;
+.paytype >img{
+	position: absolute;
+	top:0px;
+	width: 35px;
+	height: 35px;
+	margin:5px 0px 0px 15px;
+}
+
+.paytype  span{
+	font-size: 15px !important;
+	padding-top: 5px !important;
+	display: inline-block !important;
+	margin-left: 80px !important;
+	color: #1A1A1A !important;
+}
+
+.paytype label{
+	float: right;
+	margin: 5px 15px;
 }
 
 #page_detail .dhead{

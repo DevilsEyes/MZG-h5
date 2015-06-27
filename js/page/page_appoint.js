@@ -8,6 +8,16 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
 	var normalHtml = a("page/page_appoint_temp").normalHtml;
 	var iCheck = a('icheck');
 	// 点击事件
+	var backtoP1 = function(){
+		$("#part2").hide();
+		$("#part1").show();
+	}
+
+	var gotoP2 = function(){
+		$("#part1").hide();
+		$("#part2").show();
+	}
+
 	var evt = function() {
 
 			var hanlder = function() {
@@ -266,6 +276,8 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
 						putTemp(dataInfo);
 						console.dir(dataInfo);
 
+						$("#part2 > .pTop > a").click(backtoP1);
+						$("#CheckVec").click(gotoP2);
 						// 微信分享
 						var wx_data = {
 							title: $('#page_appoint').find("input[id^='wx_title']").val(),

@@ -259,12 +259,23 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                         return false;
                     }
 
+
                     // else if(id==page[0]&&page[0]=="page_appoint")
                     // {
                     // 	$('#main_container > div#page_appoint').remove();
                     // 	return false;
                     // }
 
+                }
+                if( index == 1){
+                    console.log("index=1");
+                    var id = $(this).attr('id');
+                    if(id == page[0] && page[0]=="page_detail"){
+                        $('#main_container > div#page_appoint').remove();
+                        $('#main_container > div#page_pdetail').remove();
+                        $('#main_container > div#page_fwdetail').remove();
+                        // 	return false;
+                    }
                 }
             });
             if (!isHasPg) {
