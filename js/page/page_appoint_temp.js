@@ -12,7 +12,7 @@ define("page/page_appoint_temp", function(a, b, c) {
 					+'</div>'
 					+'<input type="hidden" value="预约" id="title_appoint" />'
 						+'<div class="main">'
-							+'<div class="blank"></div>'
+							+'<div class="blank"> </div>'
 							+'<div class="dabbox ap_storeInfo">'
 								+'<div class="storeInfoImg">'
 									+'<img src="{{productInfo.images[0]}}?imageView2/1/w/80/h/80" alt="" />'
