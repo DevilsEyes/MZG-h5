@@ -16,21 +16,11 @@ define("page/page_pdetail",["ui/pbl","page/page_pdetail_temp","ui/footer","tags"
 	var main=function(){
 		getData();
 	}
-	// 判断页面个数
-	// 
-	var checkPage=function(html){
-		if (isFirst && $('#main_container > div').length <= 1) {
-			$('#main_container').append(html);
-		} else {
-			$('#main_container > div:last-child').remove();
-			$('#main_container').append(html);
-		}
-	}
 
 	// 填充模板
 	var putTemp=function(data){
 		var html = template('tmp_pdetail', data);
-		checkPage(html);
+		$('#main_container').append(html);
 //		console.dir(data);
 		if(data.tags.length!=0)
 		{
@@ -116,6 +106,6 @@ define("page/page_pdetail",["ui/pbl","page/page_pdetail_temp","ui/footer","tags"
 		getProlist();
 	}
 	c.exports={
-		main:main,
+		main:main
 	};
 });

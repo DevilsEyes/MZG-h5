@@ -18,22 +18,11 @@ define("page/page_fwdetail",["ui/pbl","page/page_fwdetail_temp","tags","ui/foote
 		getData();
 	}
 
-	// 判断页面个数
-	// 
-	var checkPage=function(html){
-		if (isFirst && $('#main_container > div').length <= 1) {
-			$('#main_container').append(html);
-		} else {
-			$('#main_container > div:last-child').remove();
-			$('#main_container').append(html);
-		}
-
-	}
 
 	// 填充模板
 	var putTemp=function(data){
 		var html = template('tmp_fwdetail', data);
-		checkPage(html);
+		$('#main_container').append(html);
 		if(data.tags.length!=0)
 		{
 			setTimeout(function(){
@@ -72,7 +61,7 @@ define("page/page_fwdetail",["ui/pbl","page/page_fwdetail_temp","tags","ui/foote
 						"productInfo":productInfo,
 						"storeInfo":STOREINFO,
 						"tags":tags,
-						"qua":QUA[productInfo.quantifier],
+						"qua":QUA[productInfo.quantifier]
 					}
 					console.log(dataInfo);
 
@@ -112,6 +101,6 @@ define("page/page_fwdetail",["ui/pbl","page/page_fwdetail_temp","tags","ui/foote
 		getProlist();
 	}
 	c.exports={
-		main:main,
+		main:main
 	};
 });

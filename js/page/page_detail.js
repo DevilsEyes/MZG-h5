@@ -95,7 +95,7 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
             }
             $('#tab').css({
                 "-webkit-transform": "translate(-" + index * WIDTH + "px,0)",
-                "-moz-transform": "translate(-" + index * WIDTH + "px,0)",
+                "-moz-transform": "translate(-" + index * WIDTH + "px,0)"
             });
             var s = index;
             var h = $('#tab > div:nth-child(' + (index + 1) + ')').find('ul').attr('data-h');
@@ -111,10 +111,10 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
             //				}
 
             $('#tab > div:nth-child(' + (index + 1) + ')').css({
-                "min-height": $(window).height() - 44,
+                "min-height": $(window).height() - 44
             });
             $('#tab').css({
-                "height": $('#tab > div:nth-child(' + (index + 1) + ')').height(),
+                "height": $('#tab > div:nth-child(' + (index + 1) + ')').height()
             });
 
             if (index == 1) {
@@ -233,23 +233,13 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
     var main = function () {
         getData();
     }
-    // 判断页面个数
-    //
-    var checkPage = function (html) {
-        if (isFirst && $('#main_container > div').length <= 1) {
-            $('#main_container').append(html);
-        } else {
-            $('#main_container > div:last-child').remove();
-            $('#main_container').append(html);
-        }
-    }
 
     // 填充模板
 
     var putTemp = function (data) {
         //		console.dir(data);
         var html = template('tmp_detail', data);
-        checkPage(html);
+        $('#main_container').append(html);
     }
     // 获取数据
     var getData = function () {
@@ -347,6 +337,6 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
 
 
     c.exports = {
-        main: main,
+        main: main
     };
 });

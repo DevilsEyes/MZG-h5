@@ -11,7 +11,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
     storeId = hrefParamsArray["storeId"];
     if (hrefParamsArray["dev"]) DEV = hrefParamsArray["dev"];
     if (hrefParamsArray["dev2"]) DEV2 = hrefParamsArray["dev2"];
-    console.log('店铺id' + storeId + '\nDEV:' + DEV);
+    window.CACHE = {};
 
     // 总入口
     // 获取店铺基本信息
@@ -30,7 +30,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                 if (data.data.storeInfo.Banner == 0) {
                     data.data.storeInfo.Banner = "";
                 }
-                console.dir(data);
+                //console.dir(data);
                 var _storeInfo = data.data.storeInfo;
 
                 if (_storeInfo.userInfo.company == null) {
@@ -81,7 +81,6 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                     }
                 };
                 $.extend(true, STOREINFO, ddd, _storeInfo);
-//				console.log(STOREINFO);
                 // 初始化
                 init();
             }
@@ -141,70 +140,20 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
 
         var a = window.location.hash,
             page = a.replace('#', "").split('/');
-//			console.dir(window.location.hash);
-//			if(MOBILE){alert(window.location.hash+'!');}
-//			console.dir(page);
         // 无论如何都要隐藏第一个div
         $('#main_container > div:first-child').hide();
         // 默认动画效果是左滑动
         var animationType = 'left';
 
-//			=================自己写的===================
-//			var page_cache =function(hash){
-//				var key = hash;
-//				var page = hash.replace('#', "").split('/');
-//				if(CACHELIST.length==0){
-//					CACHELIST[0]={"key":key,"inner":""};
-//					goPage(page);
-//				}
-//				else{
-//					for(var i=0;i<CACHELIST.length;i++){
-//						if(key==CACHELIST[i].key){
-//							//匹配到该页面的缓存，做一些事情
-//							//加载页面。
-//							$('#main_container').html(CACHELIST[i].inner);
-//							//绑定事件							
-//							
-//							// 获取页面中的分享参数
-//							var wx_title=$(this).find("input[id^='wx_title']").val(),
-//								wx_desc=$(this).find("input[id^='wx_desc']").val(),
-//								wx_imgUrl=$(this).find("input[id^='wx_imgUrl']").val();
-//							var wx_data = {
-//								title: wx_title,
-//								desc: wx_desc,
-//								imgUrl: wx_imgUrl
-//							}
-//							
-//							wx.onMenuShareAppMessage(wx_data);
-//							wx.onMenuShareTimeline(wx_data);
-//							wx.onMenuShareQQ(wx_data);
-//							wx.onMenuShareWeibo(wx_data);
-//						}
-//					}
-//					if(i==CACHELIST.length){
-//						//没有匹配到该页面的缓存，做一些事情
-//					}
-//				}
-//				
-//			}
-//			page_cache(a);
-//          ================================================================
-
-
-        // 获取main_container里的子元素的个数，若为1个，则append，若2个则删除最后一个再append
         var hanlder = function () {
-            var isHasPg = false;
-            var len = $('#main_container > div').length;
-            $('#main_container > div').each(function (index) {
-//					console.log(index);
-                if (index == 0) {
-                    var id = $(this).attr('id');
-                    if (id == page[0]) {
-
-                        // 获取页面中的分享参数
-                        var wx_title = $(this).find("input[id^='wx_title']").val(),
-                            wx_desc = $(this).find("input[id^='wx_desc']").val(),
-                            wx_imgUrl = $(this).find("input[id^='wx_imgUrl']").val();
+            var cache = $('#main_container > div#' + page[0]);
+            $('#main_container > div').hide();
+            if(cache.length > 0){
+                if(CACHE[page[0]]!=undefined||page[0]=='page_detail'){
+                    if(CACHE[page[0]]==page[1]||page[0]=='page_detail'){
+                        var wx_title = $(cache).find("input[id^='wx_title']").val(),
+                            wx_desc = $(cache).find("input[id^='wx_desc']").val(),
+                            wx_imgUrl = $(cache).find("input[id^='wx_imgUrl']").val();
                         var wx_data = {
                             title: wx_title,
                             desc: wx_desc,
@@ -216,69 +165,22 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                         wx.onMenuShareQQ(wx_data);
                         wx.onMenuShareWeibo(wx_data);
 
+                        $(cache).show();
                     }
-
-//						console.log(
-//							"|--"+"id:"+id
-//						   +"\n   page:"+page[0]
-//						   +"\n   bool:"+(id==page[0]&&page[0]!="page_appoint"));
-                    if (id == page[0] && page[0] != "page_appoint") {
-
-
-//							console.log("  |--"+(page[0]=="page_detail"));
-                        if (page[0] == "page_detail") {
-                            isHasPg = true;
-                            if (page[1] == undefined) {
-                                _ListID = 0
-                            }
-                            else {
-                                _ListID = page[1];
-                            }
-                            $('#main_container > div').hide();
-                            $('#main_container > div#' + page[0]).show();
-                            $('.s-nav > div:eq('+_ListID+')').click();
-                            if (PROH) {
-                                if (MOBILE) {
-                                }
-                                else {
-                                    window.scrollTo(0, PROH[PAGETAB]);
-                                }
-                            }
-                        }
-                        else {
-                            $('#main_container > div#' + page[0]).remove();
-                            $('#main_container > div#page_detail').hide();
-                            goPage(page);
-                        }
-
-                        // 获取页面中的title
-                        var t = $(this).find("input[id^='title']").val();
-                        $('title').html(t);
-
-
-                        return false;
-                    }
-
-
-                    // else if(id==page[0]&&page[0]=="page_appoint")
-                    // {
-                    // 	$('#main_container > div#page_appoint').remove();
-                    // 	return false;
-                    // }
-
-                }
-                if( index == 1){
-                    console.log("index=1");
-                    var id = $(this).attr('id');
-                    if(id == page[0] && page[0]=="page_detail"){
-                        $('#main_container > div#page_appoint').remove();
-                        $('#main_container > div#page_pdetail').remove();
-                        $('#main_container > div#page_fwdetail').remove();
-                        // 	return false;
+                    else{
+                        $('#main_container > div#' + page[0]).remove();
+                        console.log("!");
+                        CACHE[page[0]]=page[1];
+                        goPage(page);
                     }
                 }
-            });
-            if (!isHasPg) {
+                else{
+                    CACHE[page[0]]=page[1];
+                    goPage(page);
+                }
+            }
+            else{
+                CACHE[page[0]]=page[1];
                 goPage(page);
             }
         }
@@ -289,8 +191,9 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
 
     // 渲染页面
     var goPage = function (page) {
-//		console.log(page);
+		CACHE[page[0]]=page[1];
         $("script[id^='tmp']").remove();
+
         switch (page[0]) {
             case 'page_detail':
                 if (page[1] == undefined) {
@@ -318,9 +221,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
         }
     }
     $(window).bind('hashchange', function (e) {
-
         $("div[id^='layermbox']").remove();
-
         changePage();
     });
     getWxSign();

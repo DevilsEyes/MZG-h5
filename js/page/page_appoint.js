@@ -220,27 +220,15 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
 	}
 
 
-	// 判断页面个数
-	// 
-	var checkPage = function(html) {
-		if (isFirst && $('#main_container > div').length <= 1) {
-			$('#main_container').append(html);
-		} else {
-			$('#main_container > div:last-child').remove();
-			$('#main_container').append(html);
-		}
-
-	}
-
 	// 填充模板
 	var putTemp = function(data) {
 		var html = template('tmp_appoint', data);
-		checkPage(html);
+		$('#main_container').append(html);
 	}
 	var putTemp1 = function(data) {
 			console.dir(data);
 			var html = template('tmp1_appoint', data);
-			checkPage(html);
+			$('#main_container').append(html);
 		}
 		// 获取数据
 	var getData = function() {
