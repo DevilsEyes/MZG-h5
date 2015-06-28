@@ -64,7 +64,7 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                                 }
                                 var more = '<div id="pullUp2" class="ready" data-is="active">' + '<span class="pullUpIcon"></span>' + '<span class="pullUpLabel">上拉加载更多</span>' + '</div>';
                                 if (!DEV) {
-                                    more += '<a href="http://mzg.so/m_index.html" class="iwShop">我也要分享作品</a>';
+                                    more += '<a href="http://mzg.so/m_index.html" class="iwShop">我也要发布作品</a>';
                                 } else {
                                     more += '<div class="blank"></div>';
                                 }

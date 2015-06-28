@@ -86,7 +86,7 @@ define("page/page_detail_temp", function(a, b, c) {
 									 		+'</ul>'
 									 		+'<div id="pullUp1" class="ready" data-is="active"><span class="pullUpIcon"></span><span class="pullUpLabel">加载更多</span></div>'
 									 		+'{{if storeInfo.dev == false}}'
-								 			+'<a href="http://mzg.so/m_index.html" class="iwShop">我也要分享作品</a>'
+								 			+'<a href="http://mzg.so/m_index.html" class="iwShop">我也要发布作品</a>'
 								 			+'{{/if}}'
 								 			+'{{if storeInfo.dev == true}}'
 								 			+'<div class="blank"></div>'
@@ -126,7 +126,7 @@ define("page/page_detail_temp", function(a, b, c) {
 								 			+'{{/if}}'
 								 				
 								 			+'{{if storeInfo.dev == false}}'
-								 			+'<a href="http://mzg.so/m_index.html" class="iwShop">我也要分享作品</a>'
+								 			+'<a href="http://mzg.so/m_index.html" class="iwShop">我也要发布作品</a>'
 								 			+'{{/if}}'	
 								 		+'</div>'
 								 	+'</div>'
