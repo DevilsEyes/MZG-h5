@@ -1,0 +1,36 @@
+define("page/page_bill_temp", function(a, b, c) {
+	// js引擎模板
+	var tmpHtml = '<script id="tmp_bill" type="text/html">'
+					+'<div id="page_bill">'
+						+'<input type="hidden" value="订单" id="wx_title_bill" />'
+						//+'<input type="hidden" value="{{storeInfo.logo}}?imageView2/0/w/320" id="wx_imgUrl_bill" />'
+						//+'<input type="hidden" value="{{storeInfo.userInfo.nickname}}的微官网" id="wx_desc_billt" />'
+						+'<div class="main">'
+							+'<div class="pTop">'
+								//+'<a href="#page_fwdetail/{{productInfo._id}}" class="back"></a>'
+								//+'<a href="#page_detail/" class="backhome"></a>'
+								+'<div>确认订单</div>'
+							+'</div>'
+							+'<div class="dbox" style="padding-top:0px;">'
+								+'<div class="form">'
+									+'<div>'
+										+'<span>姓名：</span>'
+										+'<span>xxx</span>'
+									+'</div>'
+									+'<div>'
+										+'<span>手机号：</span>'
+										+'<span>123</span>'
+									+'</div>'
+									+'<div>'
+										+'<span>服务：</span>'
+										+'<span>xxx</span>'
+									+'</div>'
+								+'</div>'
+							+'</div>'
+							+'<a href="javascript:;" class="iwShop" id="pingPay">确认支付</a>'
+						+'</div>'
+					+'</div>'
+				  +'</script>';
+
+	c.exports=tmpHtml;
+});

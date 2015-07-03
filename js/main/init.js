@@ -1,14 +1,15 @@
-define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detail", "page/page_pdetail", "page/page_fwdetail", "page/page_appoint", "template"], function (a, b, c) {
+define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detail", "page/page_pdetail", "page/page_fwdetail", "page/page_appoint", "page/page_bill", "template"], function (a, b, c) {
     var page_detail = a("page/page_detail"),
         page_pdetail = a("page/page_pdetail"),
         page_appoint = a("page/page_appoint"),
         page_fwdetail = a("page/page_fwdetail");
+        page_bill = a("page/page_bill");
     a("ui/jsonp");
     template = a("template");
     var c = a("common/main"),
         hrefParamsArray = c.hrefParamsArray;
     var weixin = a("wx/weixinApi");
-    storeId = hrefParamsArray["storeId"];
+    window.storeId = hrefParamsArray["storeId"];
     if (hrefParamsArray["dev"]) DEV = hrefParamsArray["dev"];
     if (hrefParamsArray["dev2"]) DEV2 = hrefParamsArray["dev2"];
     window.CACHE = {};
@@ -27,10 +28,10 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
             },
             success: function (data) {
                 var data = eval("(" + data + ")");
+                console.log(data);
                 if (data.data.storeInfo.Banner == 0) {
                     data.data.storeInfo.Banner = "";
                 }
-                //console.dir(data);
                 var _storeInfo = data.data.storeInfo;
 
                 if (_storeInfo.userInfo.company == null) {
@@ -41,7 +42,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                 }
                 var aaa = {
                     storeId: "11111"
-                }
+                };
                 var ddd = {
                     dev: DEV,
                     dev2: DEV2,
@@ -85,14 +86,14 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                 init();
             }
         });
-    }
+    };
 
 
     var init = function () {
         var a = window.location.hash,
             page = a.replace('#', "").split('/');
         goPage(page);
-    }
+    };
 
     // 获取微信sign
     var getWxSign = function () {
@@ -111,7 +112,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                     'onMenuShareWeibo'
                 ]
             });
-        }
+        };
         $.ajax({
             url: _BASEURL + "/Weixin/Public/token/?url=" + wxUrl,
             dataType: "jsonp",
@@ -120,11 +121,9 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
             type: "GET",
             async: false,
             beforeSend: function () {
-
             },
             success: function (data) {
                 var data = eval("(" + data + ")");
-//				console.log(data);
                 var appId = data.data.app_id,
                     timestamp = data.data.timestamp,
                     nonceStr = data.data.noncestr,
@@ -149,7 +148,11 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
             var cache = $('#main_container > div#' + page[0]);
             $('#main_container > div').hide();
             if(cache.length > 0){
-                if(CACHE[page[0]]!=undefined||page[0]=='page_detail'){
+                if(page[0]=='page_appoint'){
+                    $('#main_container > div#' + page[0]).remove();
+                    goPage(page);
+                }
+                else if(CACHE[page[0]]!=undefined||page[0]=='page_detail'){
                     if(CACHE[page[0]]==page[1]||page[0]=='page_detail'){
                         var wx_title = $(cache).find("input[id^='wx_title']").val(),
                             wx_desc = $(cache).find("input[id^='wx_desc']").val(),
@@ -169,7 +172,6 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                     }
                     else{
                         $('#main_container > div#' + page[0]).remove();
-                        console.log("!");
                         CACHE[page[0]]=page[1];
                         goPage(page);
                     }
@@ -217,6 +219,11 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
 
                 _proID = page[1];
                 page_fwdetail.main();
+                break;
+            case 'page_bill':
+
+                _proID = page[1];
+                page_bill.main();
                 break;
         }
     }

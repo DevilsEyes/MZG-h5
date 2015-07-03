@@ -1,0 +1,26 @@
+.aptip{
+    padding: 15px;
+    background-color: #ececec;
+    color: #888888;
+}
+
+.aptip>p{
+    margin-bottom: 5px;
+}
+
+.ap_storeInfo > div.storeInfoMsg > h2
+{
+    font-size: 16px;
+    color: #888;
+    font-weight: normal;
+}
+.ap_storeInfo > div.storeInfoMsg > p
+{
+    color: #1a1a1a;
+    font-size: 20px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

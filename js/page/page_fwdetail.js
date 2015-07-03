@@ -35,7 +35,7 @@ define("page/page_fwdetail",["ui/pbl","page/page_fwdetail_temp","tags","ui/foote
 	}
 	// 获取数据
 	var getData=function(){
-		console.log(_proID);
+		//console.log(_proID);
 		var getProlist=function(){
 			$.ajax({
 				url: _BASEURL + "/Commodity/info/?_id="+_proID,
@@ -63,7 +63,7 @@ define("page/page_fwdetail",["ui/pbl","page/page_fwdetail_temp","tags","ui/foote
 						"tags":tags,
 						"qua":QUA[productInfo.quantifier]
 					}
-					console.log(dataInfo);
+					//console.log(dataInfo);
 
 					$('title').html('服务详情 - '+productInfo.title);
 

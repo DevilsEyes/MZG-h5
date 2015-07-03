@@ -1,42 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="format-detection" content="telephone=no">
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/ui/jsonp.js"></script>	
-	<script type="text/javascript" src="js/wxsdk.js"></script>
-	<script type="text/javascript" src="js/seajs/sea.js"></script>
-	<script type="text/javascript" src="js/load.js"></script>
-	<title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ui/jsonp.js"></script>
+    <script type="text/javascript" src="js/wxsdk.js"></script>
+    <script type="text/javascript" src="js/seajs/sea.js"></script>
+    <script type="text/javascript" src="js/load.js"></script>
+    <title></title>
 </head>
 <body>
-	<div id="main_container"></div>
-	<div id="loading">
+<div id="main_container"></div>
+<div id="loading">
 		<span>
-			<img src="images/loading.gif" alt="" />
+			<img src="images/loading.gif" alt=""/>
 		</span>
-	</div>
+</div>
 </body>
 <script type="text/javascript" id="page"></script>
-	<script type="text/javascript">
-var _BASEURL='http://api.mzg.so/V1.0.0';
-var WIDTH,HEIGHT,storeId,_ID,template,isFirst=true,STOREINFO={};
-seajs.use("jquery",function(){
-		
-		NAVFIXED = false;
-		PAGETAB = 0;
-		CACHELIST =[];
-		DEV =false;
-		DEV2 = false;
-		PROH = [0,0,0];
+<script type="text/javascript">
 
-		seajs.use("main/init",function(){});
-});
-	
+
+//    var _BASEURL = 'http://192.168.2.3/V1.0.0';
+    var _BASEURL = 'http://api.mzg.so/V1.0.0';
+
+
+    var WIDTH, HEIGHT, storeId, _ID, template, isFirst = true, STOREINFO = {};
+    seajs.use("jquery", function () {
+
+        NAVFIXED = false;
+        PAGETAB = 0;
+        CACHELIST = [];
+        DEV = false;
+        DEV2 = false;
+        PROH = [0, 0, 0];
+
+        seajs.use("main/init", function () {
+        });
+    });
+
 </script>
 <script type="text/javascript">
 

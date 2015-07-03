@@ -789,21 +789,6 @@ input.icheck
 	overflow: hidden;
 }
 
-.ap_storeInfo > div.storeInfoMsg > h2
-{
-	font-size: 16px;
-	font-weight: normal;
-}
-.ap_storeInfo > div.storeInfoMsg > p
-{
-	font-size: 13px;
-	color: #888;
-	overflow : hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
 .storeInfoImg 
 {
 	position: absolute;
