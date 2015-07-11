@@ -750,16 +750,6 @@ tail.s-de >  span i
 	background: white;
 }
 
-.btn_getvec{
-	background: #fec418;
-	margin-top: -7px;
-	padding: 12px 15px 10px 15px;
-	position: absolute;
-	font-size: 15px;
-	color: white;
-	right: 0px;
-}
-
 .in_input_addr0 > span{
 	margin-top:5px;
 }

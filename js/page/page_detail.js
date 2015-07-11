@@ -100,16 +100,6 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
             var s = index;
             var h = $('#tab > div:nth-child(' + (index + 1) + ')').find('ul').attr('data-h');
 
-            //				if (typeof(h) != "undefined" && h != "") {
-            //					$('#tab').css({
-            //						"height": h
-            //					});
-            //				} else {
-            //					$('#tab').css({
-            //						"height": "auto"
-            //					});
-            //				}
-
             $('#tab > div:nth-child(' + (index + 1) + ')').css({
                 "min-height": $(window).height() - 44
             });
@@ -165,13 +155,9 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                 }, 500);
 
             }
-
-            if (location.href.substr(location.href.length - 2).substring(0, 1) == '/') {
-                var str = location.href.substring(location.origin.length + location.pathname.length - 10, location.href.length - 1) + _ListID
-            }
-            else {
-                var str = location.href.substring(location.origin.length + location.pathname.length - 10, location.href.length) + '/' + _ListID
-            }
+            console.dir(location);
+            var str = location.origin + location.pathname + location.search +'#page_detail/' + _ListID;
+            console.log(str);
             history.pushState(null, document.title, str);
             $('#tab > div:nth-child(' + (index + 1) + ')').css({
                 "visibility": "visible"
@@ -191,7 +177,6 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                 $('.s-nav > div:eq(' + (index % 3 + 3) + ')').children('a').addClass('active');
                 index = index % 3;
                 showTab(index);
-                //					console.log(index);
             });
 
         });

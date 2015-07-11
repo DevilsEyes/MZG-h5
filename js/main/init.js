@@ -1,18 +1,19 @@
-define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detail", "page/page_pdetail", "page/page_fwdetail", "page/page_appoint", "page/page_bill", "template"], function (a, b, c) {
+define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detail", "page/page_pdetail", "page/page_invite", "page/page_fwdetail", "page/page_appoint", "template"], function (a, b, c) {
     var page_detail = a("page/page_detail"),
         page_pdetail = a("page/page_pdetail"),
         page_appoint = a("page/page_appoint"),
-        page_fwdetail = a("page/page_fwdetail");
-        page_bill = a("page/page_bill");
+        page_fwdetail = a("page/page_fwdetail"),
+        page_invite = a("page/page_invite");
     a("ui/jsonp");
     template = a("template");
-    var c = a("common/main"),
-        hrefParamsArray = c.hrefParamsArray;
+
     var weixin = a("wx/weixinApi");
-    window.storeId = hrefParamsArray["storeId"];
-    if (hrefParamsArray["dev"]) DEV = hrefParamsArray["dev"];
-    if (hrefParamsArray["dev2"]) DEV2 = hrefParamsArray["dev2"];
+
     window.CACHE = {};
+    window.openid = null;
+    window._proID = undefined;
+    window._ListID = undefined;
+
 
     // 总入口
     // 获取店铺基本信息
@@ -92,6 +93,9 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
     var init = function () {
         var a = window.location.hash,
             page = a.replace('#', "").split('/');
+        if (a.length == 0) {
+            location.hash = '#page_detail/0';
+        }
         goPage(page);
     };
 
@@ -130,6 +134,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                     signature = data.data.signature;
                 config(appId, timestamp, nonceStr, signature);
                 new weixin();
+
                 getBaseInfo();
             }
         });
@@ -139,6 +144,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
 
         var a = window.location.hash,
             page = a.replace('#', "").split('/');
+
         // 无论如何都要隐藏第一个div
         $('#main_container > div:first-child').hide();
         // 默认动画效果是左滑动
@@ -147,13 +153,14 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
         var hanlder = function () {
             var cache = $('#main_container > div#' + page[0]);
             $('#main_container > div').hide();
-            if(cache.length > 0){
-                if(page[0]=='page_appoint'){
+            if (cache.length > 0) {
+                //预约和邀约界面不被缓存
+                if (page[0] == 'page_appoint' || page[0] == 'page_bill') {
                     $('#main_container > div#' + page[0]).remove();
                     goPage(page);
                 }
-                else if(CACHE[page[0]]!=undefined||page[0]=='page_detail'){
-                    if(CACHE[page[0]]==page[1]||page[0]=='page_detail'){
+                else if (CACHE[page[0]] != undefined || page[0] == 'page_detail') {
+                    if (CACHE[page[0]] == page[1] || page[0] == 'page_detail') {
                         var wx_title = $(cache).find("input[id^='wx_title']").val(),
                             wx_desc = $(cache).find("input[id^='wx_desc']").val(),
                             wx_imgUrl = $(cache).find("input[id^='wx_imgUrl']").val();
@@ -169,31 +176,34 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                         wx.onMenuShareWeibo(wx_data);
 
                         $(cache).show();
+                        if (page[0] == 'page_detail') {
+                            $('.s-nav > div:eq(' + _ListID + ')').click();
+                        }
                     }
-                    else{
+                    else {
                         $('#main_container > div#' + page[0]).remove();
-                        CACHE[page[0]]=page[1];
+                        CACHE[page[0]] = page[1];
                         goPage(page);
                     }
                 }
-                else{
-                    CACHE[page[0]]=page[1];
+                else {
+                    CACHE[page[0]] = page[1];
                     goPage(page);
                 }
             }
-            else{
-                CACHE[page[0]]=page[1];
+            else {
+                CACHE[page[0]] = page[1];
                 goPage(page);
             }
-        }
+        };
         hanlder();
 
 
-    }
+    };
 
     // 渲染页面
     var goPage = function (page) {
-		CACHE[page[0]]=page[1];
+        CACHE[page[0]] = page[1];
         $("script[id^='tmp']").remove();
 
         switch (page[0]) {
@@ -210,23 +220,27 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                 _proID = page[1];
                 page_pdetail.main();
                 break;
-            case 'page_appoint':
-
-                _proID = page[1];
-                page_appoint.main();
-                break;
             case 'page_fwdetail':
 
                 _proID = page[1];
                 page_fwdetail.main();
                 break;
-            case 'page_bill':
+            case 'page_appoint':
 
                 _proID = page[1];
-                page_bill.main();
+                page_appoint.main();
                 break;
+            case 'page_invite':
+
+                _proID = page[1];
+                page_invite.main();
+                break;
+            default:
+                _ListID =0;
+                page_detail.main();
+
         }
-    }
+    };
     $(window).bind('hashchange', function (e) {
         $("div[id^='layermbox']").remove();
         changePage();

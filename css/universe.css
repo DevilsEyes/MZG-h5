@@ -14,7 +14,8 @@
     color: #888;
     font-weight: normal;
 }
-.ap_storeInfo > div.storeInfoMsg > p
+
+.ap_storeInfo > div.storeInfoMsg > p#deposit
 {
     color: #1a1a1a;
     font-size: 20px;
@@ -23,4 +24,34 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+.ap_storeInfo > div.storeInfoMsg > p#desc
+{
+    font-size:14px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.btn_getvec{
+    background: #fec418;
+    margin-top: -7px;
+    padding: 12px 15px 10px 15px;
+    position: absolute;
+    font-size: 15px;
+    color: white;
+    right: 0;
+}
+
+.btn_getvec_ed{
+    background: #dca200;
+    margin-top: -7px;
+    padding: 12px 15px 10px 15px;
+    position: absolute;
+    font-size: 15px;
+    color: white;
+    right: 0;
 }
