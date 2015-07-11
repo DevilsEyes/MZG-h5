@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51053a5e-c834-44a9-a3cb-de3e80f251ce" name="Default" comment="ver  2015-7-11 15:21&#10;&#10;1.新增invite页面(未测试)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/wxpay.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/page/page_invite.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/page/page_invite_temp.js" />
+    <list default="true" id="51053a5e-c834-44a9-a3cb-de3e80f251ce" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MZGaili_new_h5.iws" />
@@ -621,7 +618,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436599347599</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ver  2015-7-11 15:21&#10;&#10;1.新增invite页面(未测试)">
+      <created>1436599415268</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1436599415268</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
