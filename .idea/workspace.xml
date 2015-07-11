@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51053a5e-c834-44a9-a3cb-de3e80f251ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/main/query.js" />
-      <change type="DELETED" beforePath="E:\EngUrl\MZGaili_new_h5\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="E:\EngUrl\MZGaili_new_h5\js\page\page_bill.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\EngUrl\MZGaili_new_h5\js\page\page_bill_temp.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/css.css" afterPath="$PROJECT_DIR$/css/css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/css_pc.css" afterPath="$PROJECT_DIR$/css/css_pc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main/init.js" afterPath="$PROJECT_DIR$/js/main/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/page/page_appoint.js" afterPath="$PROJECT_DIR$/js/page/page_appoint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/page/page_appoint_temp.js" afterPath="$PROJECT_DIR$/js/page/page_appoint_temp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/page/page_detail.js" afterPath="$PROJECT_DIR$/js/page/page_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/page/page_fwdetail.js" afterPath="$PROJECT_DIR$/js/page/page_fwdetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/page/page_fwdetail_temp.js" afterPath="$PROJECT_DIR$/js/page/page_fwdetail_temp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/universe.css" afterPath="$PROJECT_DIR$/css/universe.css" />
+    <list default="true" id="51053a5e-c834-44a9-a3cb-de3e80f251ce" name="Default" comment="ver  2015-7-11 15:21&#10;&#10;1.新增invite页面(未测试)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/wxpay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/page/page_invite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/page/page_invite_temp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MZGaili_new_h5.iws" />
@@ -41,7 +29,7 @@
       <file leaf-file-name="page_invite_temp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/page/page_invite_temp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61921096">
+            <state vertical-scroll-proportion="0.94502616">
               <caret line="238" column="20" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
               <folding>
                 <marker date="1436588240807" expanded="true" signature="1642:1658" placeholder="..." />
@@ -627,7 +615,13 @@
       <option name="project" value="LOCAL" />
       <updated>1435916254088</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ver  2015-7-11 15:21&#10;&#10;1.新增invite页面(未测试)">
+      <created>1436599347598</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1436599347599</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -643,18 +637,18 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30580357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30580357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -681,7 +675,8 @@
     <MESSAGE value="ver  2015-5-27 22:53&#10;&#10;1. 现在可以直接通过#page_detail/0   or   /1  or   /2&#10;来直接访问   作品集/价目表/简介&#10;&#10;2.新增手机验证码  (样式已做好，实现暂无)&#10;&#10;3.手机号/验证码的输入框增加长度限制&#10;&#10;4.修改了页面的缓存方式，修复了回跳已缓存页面时出现BUG的问题。" />
     <MESSAGE value="ver  2015-6-29 01:05&#10;&#10;1.将“我也要分享作品” 修改为 “我也要发布作品”。" />
     <MESSAGE value="ver  2015-7-3 17:35&#10;&#10;1.新增bill页面，invite页面(不可用)&#10;&#10;2.修改了一些css，将一部分css从pc和m版挪入通用css(universe)中。" />
-    <option name="LAST_COMMIT_MESSAGE" value="ver  2015-7-3 17:35&#10;&#10;1.新增bill页面，invite页面(不可用)&#10;&#10;2.修改了一些css，将一部分css从pc和m版挪入通用css(universe)中。" />
+    <MESSAGE value="ver  2015-7-11 15:21&#10;&#10;1.新增invite页面(未测试)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ver  2015-7-11 15:21&#10;&#10;1.新增invite页面(未测试)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1053,7 +1048,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/page/page_invite_temp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61921096">
+        <state vertical-scroll-proportion="0.94502616">
           <caret line="238" column="20" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
           <folding>
             <marker date="1436588240807" expanded="true" signature="1642:1658" placeholder="..." />
