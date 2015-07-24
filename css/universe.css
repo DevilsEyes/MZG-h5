@@ -1,3 +1,9 @@
+#page_appoint .main,
+#page_invite .main
+{
+    background-color: white !important;
+}
+
 .aptip{
     padding: 15px;
     background-color: #ececec;
@@ -6,6 +12,12 @@
 
 .aptip>p{
     margin-bottom: 5px;
+}
+
+.ap_storeInfo > div.storeInfoImg > .s-head{
+    border-radius: 999px;
+    width: 80px;
+    height: 80px;
 }
 
 .ap_storeInfo > div.storeInfoMsg > h2
@@ -31,9 +43,9 @@
     font-size:14px;
     overflow : hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    white-space:nowrap;
 }
 
 .btn_getvec{
@@ -54,4 +66,83 @@
     font-size: 15px;
     color: white;
     right: 0;
+}
+
+.iwShop
+{
+    display: block;
+    font-size:16px;
+    text-align: center;
+    line-height: 45px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border-radius: 999px;
+}
+
+#page_detail .iwShop,
+#page_pdetail .iwShop,
+#page_fwdetail .iwShop,
+#page_invite .iwShop{
+    border: solid 2px #FEC418;
+    color:#1a1a1a;
+}
+
+#page_detail .iwShop:visited,
+#page_pdetail .iwShop:visited,
+#page_fwdetail .iwShop:visited,
+#page_invite .iwShop:visited{
+    color:#1a1a1a;
+}
+
+
+#page_detail .iwShop:active,
+#page_pdetail .iwShop:active,
+#page_fwdetail .iwShop:active,
+#page_invite .iwShop:active{
+    color:#fff;
+    background: #FEC418;
+}
+
+
+#page_appoint .iwShop{
+    border: solid 2px #ffbb77;
+    color:#1a1a1a;
+    background-color: white;
+    margin-bottom: 300px;
+}
+
+#page_appoint .iwShop:visited{
+    color:#1a1a1a;
+}
+
+#page_appoint .iwShop:active{
+    background: #ffbb77;
+    color:white;
+}
+
+.paytype{
+    height:30px;
+}
+
+.paytype >img{
+    position: absolute;
+    top:0px;
+    width: 35px;
+    height: 35px;
+    margin:5px 0px 0px 15px;
+}
+
+.paytype  span{
+    font-size: 15px !important;
+    padding-top: 5px !important;
+    display: inline-block !important;
+    margin-left: 80px !important;
+    color: #1A1A1A !important;
+}
+
+.paytype label{
+    float: right;
+    margin: 5px 15px;
 }

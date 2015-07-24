@@ -30,68 +30,74 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
             success: function (data) {
                 var data = eval("(" + data + ")");
                 console.log(data);
-                if (data.data.storeInfo.Banner == 0) {
-                    data.data.storeInfo.Banner = "";
-                }
-                var _storeInfo = data.data.storeInfo;
-
-                if (_storeInfo.userInfo.company == null) {
-                    _storeInfo.userInfo.company = {
-                        name: '',
-                        address: ''
+                if(data.code==0){
+                    if (data.data.storeInfo.Banner == 0) {
+                        data.data.storeInfo.Banner = "";
                     }
-                }
-                var aaa = {
-                    storeId: "11111"
-                };
-                var ddd = {
-                    dev: DEV,
-                    dev2: DEV2,
-                    storeId: "",
-                    storeName: "",
-                    topBanner: "",
-                    createdTime: 0,
-                    storeType: 0,
-                    banned: 0,
-                    storeNum: "",
-                    description: "",
-                    serviceArea: "",
-                    sector: 10,
-                    logo: "",
-                    serviceToHome: true,
-                    serviceInStore: true,
-                    userInfo: {
-                        userId: "",
-                        secPhonenum: "",
-                        name: "",
-                        nickname: "",
-                        avatar: "",
-                        birthYear: "",
-                        birthMonth: "",
-                        birthDay: "",
-                        gender: "",
-                        wxNum: "",
-                        banned: "",
-                        storeId: "",
-                        storeName: "",
-                        storeNum: "",
-                        sector: "",
-                        company: {
-                            name: "",
-                            address: ""
+                    var _storeInfo = data.data.storeInfo;
+
+                    if (_storeInfo.userInfo.company == null) {
+                        _storeInfo.userInfo.company = {
+                            name: '',
+                            address: ''
                         }
                     }
-                };
-                $.extend(true, STOREINFO, ddd, _storeInfo);
-                // 初始化
-                init();
+                    var aaa = {
+                        storeId: "11111"
+                    };
+                    var ddd = {
+                        dev: DEV,
+                        dev2: DEV2,
+                        storeId: "",
+                        storeName: "",
+                        topBanner: "",
+                        createdTime: 0,
+                        storeType: 0,
+                        banned: 0,
+                        storeNum: "",
+                        description: "",
+                        serviceArea: "",
+                        sector: 10,
+                        logo: "",
+                        serviceToHome: true,
+                        serviceInStore: true,
+                        userInfo: {
+                            userId: "",
+                            secPhonenum: "",
+                            name: "",
+                            nickname: "",
+                            avatar: "",
+                            birthYear: "",
+                            birthMonth: "",
+                            birthDay: "",
+                            gender: "",
+                            wxNum: "",
+                            banned: "",
+                            storeId: "",
+                            storeName: "",
+                            storeNum: "",
+                            sector: "",
+                            company: {
+                                name: "",
+                                address: ""
+                            }
+                        }
+                    };
+                    $.extend(true, STOREINFO, ddd, _storeInfo);
+                    // 初始化
+                    init();
+                }
+                else{
+                    alert(data.msg);
+                }
+
             }
         });
     };
 
 
     var init = function () {
-        var a = window.location.hash,
+        var a = location.hash,
             page = a.replace('#', "").split('/');
         if (a.length == 0) {
             location.hash = '#page_detail/0';

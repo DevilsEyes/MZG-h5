@@ -171,6 +171,7 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
             $('.addr0,.addr1').hide();
             $('.addr' + value).show();
         });
+        $('#icheck1').iCheck('check');
 
         $('#btn_getvec').click(phoneCheck);
 

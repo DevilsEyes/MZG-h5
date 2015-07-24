@@ -58,7 +58,7 @@ define("page/page_fwdetail_temp", function(a, b, c) {
 										+'{{/each}}'
 								+'{{/if}}'
 								+'{{if storeInfo.dev == false}}'
-					 			+'<a href="http://mzg.so/m_index.html" class="iwShop">我也要发布作品</a>'
+					 			+'<a href="http://mzg.so/m_index.html" class="iwShop">我也要开通微名片</a>'
 					 			+'{{/if}}'
 					 			+'<div class="blank"></div>'
 							+'</div>'

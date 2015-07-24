@@ -35,20 +35,25 @@ define("main/query", ["ui/jsonp","common/main"], function (a, b, c) {
         return str;
     };
 
-    //微信中获取openid  (#page_bill页面必须获取openid)
-    if(isWX){  //   if(isWX||location.href.match(/page_bill/i))
+
+    //微信中获取openid  (#page_invite页面必须获取openid)
+    if(isWX||location.href.match(/page_invite/i)){
+        //alert(location.href);
 
         if (typeof(STATE)=='undefined'&&typeof(CODE)=='undefined'){
+
             var appId = 'wx57c7040dfd0ba925';
             var REURI = encodeURI(location.origin + location.pathname);
             var state = enCodeUni( location.search + location.hash );
-            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?'
+            self.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?'
                 + 'appid=' + appId + '&redirect_uri=' + REURI + '&response_type=code&scope=snsapi_base&state='+ state +'#wechat_redirect';
         }
         else if (CODE&&typeof(STATE)=='undefined') {
+            //alert('尝试获取openid');
             $.jsonp({
                 url: _BASEURL + "/Weixin/Public/accessToken",
                 callbackParameter: "callback",
+                async: false,
                 data: {
                     code: CODE
                 },
@@ -56,17 +61,24 @@ define("main/query", ["ui/jsonp","common/main"], function (a, b, c) {
                     var obj = $.parseJSON(obj);
                     if (obj.code == 0) {
                         window.OPENID = obj.data.openid;
+
+                        seajs.use("main/init");
                     }
                 }
             });
         }
         else if (STATE){
             var newurl = deCodeUni(STATE).split('#');
-            location.href = location.origin + location.pathname + newurl[0] + '&code=' + CODE + '#' + newurl[1];
+            //alert(newurl[0]);
+            //alert(newurl[1]);
+            //alert(location.origin + location.pathname + newurl[0] + '&code=' + CODE + '#' + newurl[1]);
+            self.location.href = location.origin + location.pathname + newurl[0] + '&code=' + CODE + '#' + newurl[1];
         }
     }
+    else{
+        seajs.use("main/init");
+    }
 
-    seajs.use("main/init", function () {
-    });
+
 
 });
