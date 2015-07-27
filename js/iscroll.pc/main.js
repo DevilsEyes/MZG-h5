@@ -103,6 +103,6 @@ define("iscroll.pc/main", ["jquery", "ui/loadmore"], function(require, exports, 
 		create: a,
 		refresh: resh,
 		scrolltoTop: tranTop,
-		scrolltoPre: tranPre,
+		scrolltoPre: tranPre
 	};
 });

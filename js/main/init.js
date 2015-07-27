@@ -18,6 +18,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
     // 总入口
     // 获取店铺基本信息
     var getBaseInfo = function () {
+        alert('storeId:'+storeId);
         $.ajax({
             url: _BASEURL + "/Store/info/?storeId=" + storeId + '&full=true',
             dataType: "jsonp",
