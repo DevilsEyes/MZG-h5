@@ -2,6 +2,13 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <script type="text/javascript" src="index.js"></script>
+
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,9 +33,9 @@
 <script type="text/javascript">
 
 
-//    var _BASEURL = 'http://192.168.2.3/V1.0.0';
-    var _BASEURL = 'http://123.57.42.13/V1.0.0/';
-//    var _BASEURL = 'http://api.mzg.so/V1.0.0';
+//    var _BASEURL = 'http://192.168.2.13/V1.0.0';
+//    var _BASEURL = 'http://123.57.42.13/V1.0.0/';
+    var _BASEURL = 'http://api.mzg.so/V1.0.0';
 
 
     var WIDTH, HEIGHT, storeId, _ID, template, isFirst = true, STOREINFO = {};
@@ -41,7 +48,8 @@
         DEV2 = false;
         PROH = [0, 0, 0];
 
-        seajs.use("main/query", function () {
+        seajs.use("main/init", function () {
+            $('#loading').show();
         });
     });
 

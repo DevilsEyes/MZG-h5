@@ -14,12 +14,9 @@ define("iscroll4/main", ["iscroll", "jquery", "ui/loadmore"], function(require, 
 					if (index == 0) {
 						var lastid = $('#lastid').val();
 						new pageLoad_zpx(lastid, pbl);
-
-
 					}
 					// 加载服务
 					else if (index == 1) {
-
 						var latestIndex = $('#Gallery1 li').length;
 						new pageLoad_fw(latestIndex, pbl1);
 					}
@@ -82,7 +79,6 @@ define("iscroll4/main", ["iscroll", "jquery", "ui/loadmore"], function(require, 
 				setTimeout(function() {
 					if (isScroll) {
 						$('#COVER').css('display', 'block');
-						console.log('show');
 					}
 				}, 100);
 
@@ -170,6 +166,6 @@ define("iscroll4/main", ["iscroll", "jquery", "ui/loadmore"], function(require, 
 		create: a,
 		refresh: resh,
 		scrolltoTop: tranTop,
-		scrolltoPre: tranPre,
+		scrolltoPre: tranPre
 	};
 });

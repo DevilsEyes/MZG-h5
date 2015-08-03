@@ -1,9 +1,6 @@
-define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "layer", "pingpp"], function (a, b, c) {
-
-    alert('这个page_invite是19：59发布的！');
+define("page/page_invite", ["icheck", "page/page_invite_temp","layer", "pingpp"], function (a, b, c) {
 
     var layer = a("layer");
-    storeId = a("common/main").hrefParamsArray["storeId"];
 
     // js引擎模板
     var tmpHtml = a("page/page_invite_temp").tmpHtml;
@@ -32,7 +29,7 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
 
     //入口
     var main = function () {
-        alert(_proID);
+        document.title = '服务预约';
         getInviteInfo();
     };
 
@@ -46,6 +43,8 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
             },
             success: function (obj) {
                 obj = $.parseJSON(obj);
+                console.log('getInviteInfo:');
+                console.dir(obj);
                 if (obj.code == 0) {
                     data_invite.inviteInfo = obj.data.orderInfo;
 
@@ -180,7 +179,7 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
         var initTime = function () {
             var GetDateStr = function (AddDayCount) {
                 var dd = new Date();
-                dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期----》就靠这句话
+                dd.setDate(dd.getDate() + AddDayCount);
                 var y = dd.getFullYear();
                 var m = dd.getMonth() + 1; //获取当前月份的日期
                 var d = dd.getDate();
@@ -323,6 +322,7 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
         };
         initEvent();
 
+        $('#loading').hide();
         window.scrollTo(0, 0);
     };
 
@@ -427,7 +427,8 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
                                 if (result == "success") {
                                     showMsg("支付成功", 99999);
                                     setTimeout(function () {
-                                        history.go(-1);
+                                        location.href = 'paySuccess.html';
+                                        //history.go(-1);
                                     }, 1500);
                                 } else if (result == "fail") {
                                     showMsg("失败", 99999);
@@ -503,6 +504,7 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
                 postData.pingChannel = channel;
                 postData.pingExtra = {
                     open_id: OPENID
+                    //open_id:'oNyPMs7crBm9X-IINzAWJeSiUjM'
                 };
             }
             if (data_invite.haveCommodity) {
@@ -517,11 +519,12 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
                         var charge = data.charge;
 
                         if (data_invite.havePay) {
+
                             pingpp.createPayment(charge, function (result, error) {
                                 if (result == "success") {
                                     showMsg("支付成功", 99999);
                                     setTimeout(function () {
-                                        history.go(-1);
+                                        location.href = 'paySuccess.html';
                                     }, 1500);
                                 } else if (result == "fail") {
                                     showMsg("失败", 99999);
@@ -557,12 +560,14 @@ define("page/page_invite", ["icheck", "page/page_invite_temp", "common/main", "l
                     beforeSend: showMsg('提交中', 2000),
                     success: function (obj) {
                         obj = $.parseJSON(obj);
-                        //console.dir(obj);
-                        var code = obj.code;
+
+                        console.log('result:');
                         console.dir(obj);
+
+                        var code = obj.code;
                         if (code == 0) {
                             showMsg('提交成功', 2);
-                            f(data_invite.mode, obj.data);
+                            f(obj.data);
                         }
                         else {
                             showMsg(obj.msg, 2);

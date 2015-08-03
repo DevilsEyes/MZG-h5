@@ -1,4 +1,4 @@
-define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detail", "page/page_pdetail", "page/page_invite", "page/page_fwdetail", "page/page_appoint", "template"], function (a, b, c) {
+define("main/init", ["ui/jsonp", "wx/weixinApi", "page/page_detail", "page/page_pdetail", "page/page_invite", "page/page_fwdetail", "page/page_appoint", "template"], function (a, b, c) {
     var page_detail = a("page/page_detail"),
         page_pdetail = a("page/page_pdetail"),
         page_appoint = a("page/page_appoint"),
@@ -14,11 +14,9 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
     window._proID = undefined;
     window._ListID = undefined;
 
-
     // 总入口
     // 获取店铺基本信息
     var getBaseInfo = function () {
-        alert('storeId:'+storeId);
         $.ajax({
             url: _BASEURL + "/Store/info/?storeId=" + storeId + '&full=true',
             dataType: "jsonp",
@@ -31,7 +29,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
             success: function (data) {
                 var data = eval("(" + data + ")");
                 console.log(data);
-                if(data.code==0){
+                if (data.code == 0) {
                     if (data.data.storeInfo.Banner == 0) {
                         data.data.storeInfo.Banner = "";
                     }
@@ -85,17 +83,36 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                         }
                     };
                     $.extend(true, STOREINFO, ddd, _storeInfo);
-                    // 初始化
-                    init();
+
+                    if(isWX){
+                        $.jsonp({
+                            url: _BASEURL + "/Weixin/Public/accessToken",
+                            callbackParameter: "callback",
+                            async: false,
+                            data: {
+                                code: CODE
+                            },
+                            success: function (obj) {
+                                var obj = $.parseJSON(obj);
+                                if (obj.code == 0) {
+                                    window.OPENID = obj.data.openid;
+                                    init();
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        // 初始化
+                        init();
+                    }
                 }
-                else{
+                else {
                     alert(data.msg);
                 }
 
             }
         });
     };
-
 
     var init = function () {
         var a = location.hash,
@@ -145,7 +162,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                 getBaseInfo();
             }
         });
-    }
+    };
     // 跳转页面
     var changePage = function () {
 
@@ -243,7 +260,7 @@ define("main/init", ["ui/jsonp", "wx/weixinApi", "common/main", "page/page_detai
                 page_invite.main();
                 break;
             default:
-                _ListID =0;
+                _ListID = 0;
                 page_detail.main();
 
         }

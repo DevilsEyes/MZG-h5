@@ -113,6 +113,8 @@ define("page/page_fwdetail", ["ui/pbl", "page/page_fwdetail_temp", "tags", "ui/f
                         prodesc = prodesc.replace(/\n/g, "<br/>").replace(' ', "&nbsp;");
                         $('#prodesc').html(prodesc);
                     }
+
+                    $('#loading').hide();
                 }
             });
         }

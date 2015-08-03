@@ -4,28 +4,6 @@ document.write('<link rel="stylesheet" href="css/touchswipe.css">');
 document.write('<link rel="stylesheet" href="css/icheck/red.css">');
 document.write('<link rel="stylesheet" href="css/universe.css">');
 
-
-MOBILE = navigator.userAgent.match(/mobile/i) != null;
-
-isWX = false;
-
-function onBridgeReady() {
-    isWX = true;
-}
-
-if (typeof WeixinJSBridge == "undefined") {
-    if (document.addEventListener) {
-        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    } else if (document.attachEvent) {
-        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-    }
-} else {
-    onBridgeReady();
-}
-
-//MOBILE=true; //测试指令
-
 if (MOBILE) {
     document.write('<link rel="stylesheet" href="css/css.css">');
     WIDTH = $(window).width(),
@@ -54,5 +32,3 @@ seajs.config({
 seajs.use('fastclick', function () {
     FastClick.attach(document.body);
 });
-
-

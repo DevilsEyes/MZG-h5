@@ -5,7 +5,6 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
         var r_isc = a("iscroll4/main").refresh;
         var toTop = a("iscroll4/main").scrolltoTop;
         var toPre = a("iscroll4/main").scrolltoPre;
-        //		console.dir(r_isc);
     } else {
         var isc = a("iscroll.pc/main").create;
         var r_isc = a("iscroll.pc/main").refresh;
@@ -50,7 +49,6 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                                 var ul = '<ul class="pro" id="Gallery1"></ul>';
                                 var len = list.length;
                                 $('.prolist._fw').append(ul);
-                                //									console.dir(list);
                                 for (var i = 0; i < list.length; i++) {
                                     var _id = list[i]._id,
                                         img = list[i].images[0],
@@ -155,9 +153,7 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                 }, 500);
 
             }
-            console.dir(location);
             var str = location.origin + location.pathname + location.search +'#page_detail/' + _ListID;
-            console.log(str);
             history.pushState(null, document.title, str);
             $('#tab > div:nth-child(' + (index + 1) + ')').css({
                 "visibility": "visible"
@@ -213,19 +209,18 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                 });
             });
         }
-    }
+    };
     // 页面渲染
     var main = function () {
         getData();
-    }
+    };
 
     // 填充模板
-
     var putTemp = function (data) {
-        //		console.dir(data);
         var html = template('tmp_detail', data);
         $('#main_container').append(html);
-    }
+    };
+
     // 获取数据
     var getData = function () {
         var getProlist = function () {
@@ -312,6 +307,8 @@ define("page/page_detail", ["ui/pbl", "ui/pbl1", "page/page_detail_temp", "ui/fo
                         $('#pullUp1').attr('data-is', 'empty');
                         $('#pullUp1 .pullUpLabel').html('掌柜太忙，还未上传作品~');
                     }
+
+                    $('#loading').hide();
 
                 }
             });

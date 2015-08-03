@@ -1,6 +1,5 @@
-define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", "layer", "pingpp"], function (a, b, c) {
+define("page/page_appoint", ["icheck", "page/page_appoint_temp", "layer", "pingpp"], function (a, b, c) {
     var layer = a("layer");
-    storeId = a("common/main").hrefParamsArray["storeId"];
     // js引擎模板
     var tmpHtml = a("page/page_appoint_temp").tmpHtml;
     var normalHtml = a("page/page_appoint_temp").normalHtml;
@@ -203,7 +202,6 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                         captcha = $('#vec').val();
 
 
-                    console.log(customerInfo);
                     showMsg('提交中', 2000);
 
                     var postdata = {
@@ -231,7 +229,8 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                             open_id: OPENID
                         };
                     }
-
+                    //
+                    //console.dir(postdata);
                     $.jsonp({
                             url: _BASEURL + "/Order/info/?_method=PUT",
                             callbackParameter: "callback",
@@ -239,6 +238,7 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                             success: function (obj) {
                                 var obj = $.parseJSON(obj);
                                 var code = obj.code;
+
                                 if (code == 0) {
                                     showMsg('提交成功', 2);
 
@@ -272,6 +272,9 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                                     showMsg(obj.msg, 2);
                                 }
 
+                            },
+                            error:function(){
+                                showMsg('您的网络不太给力哦！', 2);
                             }
                         }
                     );
@@ -309,7 +312,6 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
     };
 
     var putTemp1 = function (data) {
-        console.dir(data);
         var html = template('tmp1_appoint', data);
         $('#main_container').append(html);
     };
@@ -331,7 +333,7 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                         $('#main_container').hide();
                     },
                     success: function (data) {
-                        $('#loading').hide();
+
                         $('#main_container').show();
 
                         var data = eval("(" + data + ")"),
@@ -345,6 +347,12 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                         //填充模版
                         $('title').html('预约');
                         $('body').append(tmpHtml);
+
+                        //console.dir(dataInfo);
+                        //dataInfo.haveDesc = false;
+                        ////dataInfo.deposit = 1;
+                        //dataInfo.productInfo.deposit = 1;
+                        //OPENID = 'oNyPMs7crBm9X-llnNzAWJeSiUjM';
 
                         putTemp(dataInfo);
 
@@ -376,6 +384,7 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
                             increaseArea: '20%' // optional
                         });
 
+
                     }
                 });
             } else {
@@ -406,6 +415,7 @@ define("page/page_appoint", ["icheck", "page/page_appoint_temp", "common/main", 
 
             }
             window.scrollTo(0, 0);
+            $('#loading').hide();
 
         };
 
